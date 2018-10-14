@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方块</title>
+    <style>
+        #container{
+            width:850px;
+            height:730px;
+            background:gray;
+            position: relative;
+            margin:10px auto;
+        }
+        #target{
+            width:850px;
+            height:500px;
+            background:pink;
+        }
+        #target div{
+            width:60px;
+            height:60px;
+            background:white;
+            margin-top:10px;
+            margin-left:10px;
+            float:left;
+        }
+        #tank{
+            width:40px;
+            height:40px;
+            background:red;
+            position:absolute;
+            left:380px;
+            top:680px;
+        }
+        #btn1{
+            position: absolute;
+            top:690px;
+            left:800px;
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oBtn=document.getElementById('btn1');
+            var oTank=document.getElementById('tank');
+            var oDiv=document.getElementById('container');
+            var oDiv1=document.getElementById('target');
+            var aDiv=oDiv1.getElementsByTagName('div');
+            var sum=0;
+
+            oBtn.onclick=function()
+            {
+                oTank.style.background='yellow';
+
+                document.onkeydown=function(ev)
+                {
+                    var oEvent=ev||event;
+                    //alert(oEvent.keyCode);
+                    switch (oEvent.keyCode)
+                    {
+                        case 37:
+                            oTank.style.left=oTank.offsetLeft-10+'px';//左
+                            if(oTank.offsetLeft<=0)
+                            {
+                                oTank.style.left=0;
+                            }
+                            break;
+                        case 38:
+                            oTank.style.top=oTank.offsetTop-10+'px';//上
+                            if(oTank.offsetTop<=0)
+                            {
+                                oTank.style.top=0;
+                            }
+                            break;
+                        case 39:
+                            oTank.style.left=oTank.offsetLeft+10+'px';//右
+                            if(oTank.offsetLeft>=oDiv.offsetWidth-oTank.offsetWidth)
+                            {
+                                oTank.style.left=oDiv.offsetWidth-oTank.offsetWidth+'px';
+                            }
+                            break;
+                        case 40:
+                            oTank.style.top=oTank.offsetTop+10+'px';//下
+                            if(oTank.offsetTop>=oDiv.offsetHeight-oTank.offsetHeight)
+                            {
+                                oTank.style.top=oDiv.offsetHeight-oTank.offsetHeight+'px';
+                            }
+                            break;
+                        default:break;
+
+                    }
+     /*               if(oEvent.keyCode==37)//左
+                    {
+                        oTank.style.left=oTank.offsetLeft-10+'px';
+                       // document.onkeydown=null;
+                    }
+                    if(oEvent.keyCode==38)//上
+                    {
+                        oTank.style.top=oTank.offsetTop-10+'px';
+                    }
+                    if(oEvent.keyCode==39)//右
+                    {
+                        oTank.style.left=oTank.offsetLeft+10+'px';
+                    }
+                    if(oEvent.keyCode==40)//下
+                    {
+                        oTank.style.top=oTank.offsetTop+10+'px';
+                    }*/
+                    if(sum==0)
+                    {
+                        if(oEvent.keyCode==32)//空格
+                        {
+                            sum=0;
+                            var oJet=document.createElement('div');
+                            oJet.style.width=6+'px';
+                            oJet.style.height=10+'px';
+                            oJet.style.background='blue';
+                            oJet.style.position='absolute';
+
+                            oJet.style.left=oTank.offsetLeft+17+'px';
+                            oJet.style.top=oTank.offsetTop-10+'px';
+
+                            oDiv.appendChild(oJet);
+
+                            var timer=setInterval(function(){
+                                oJet.style.top=oJet.offsetTop-5+'px';
+                                for(var i=0;i<aDiv.length;i++)
+                                {
+                                    if((aDiv[i].offsetTop==oJet.offsetTop-60)&&(aDiv[i].offsetLeft>oJet.offsetLeft-60)&&
+                                            (aDiv[i].offsetLeft<oJet.offsetLeft))//不是位置没有定对,而是消失之后,所有的div都自动向前移动了.
+                                    {
+                                        aDiv[i].style.background='none';//如果这里变成display='none'每次在视觉上会显示最后一个div消失.
+                                        oJet.style.display='none';
+                                        clearInterval(timer);
+                                        sum=0;
+                                    }
+                                    if(oJet.offsetTop<=0)
+                                    {
+                                        oJet.style.display='none';
+                                        sum=0;
+                                    }
+                                }
+                            },30);
+
+
+
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="container">
+    <div id="target">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div id="tank"></div>
+    <input id="btn1" type="button" value="开始"/>
+</div>
+
+</body>
+</html>

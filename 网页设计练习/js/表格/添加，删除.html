@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function()
+        {
+            var oTab=document.getElementById('tab1');
+            var oBtn=document.getElementById('btn1');
+            var oName=document.getElementById('name');
+            var oAge=document.getElementById('age');
+            var id=oTab.tBodies[0].rows.length+1;
+
+            oBtn.onclick=function()
+            {
+                var oTr=document.createElement('tr');
+
+                var oTd=document.createElement('td');
+                oTd.innerHTML=id++;
+                oTr.appendChild(oTd);
+
+                var oTd=document.createElement('td');
+                oTd.innerHTML=oName.value;
+                oTr.appendChild(oTd);
+
+                var oTd=document.createElement('td');
+                oTd.innerHTML=oAge.value;
+                oTr.appendChild(oTd);
+
+                var oTd=document.createElement('td');
+                oTd.innerHTML='<a href="#">删除</a>';
+                oTr.appendChild(oTd);
+
+                oTd.getElementsByTagName('a')[0].onclick=function()
+                {
+                    oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+                };
+
+                oTab.tBodies[0].appendChild(oTr);
+            };
+            for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+            {
+                oTab.getElementsByTagName('a')[i].onclick=function()
+                {
+                    oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+                };
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+姓名：<input id="name" type="text"/>
+年龄：<input id="age" type="text"/>
+<input id="btn1" type="button" value="添加"/>
+<table id="tab1" border="1px" width="500px">
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>赵a</td>
+        <td>23</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>钱b</td>
+        <td>21</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>周c</td>
+        <td>22</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

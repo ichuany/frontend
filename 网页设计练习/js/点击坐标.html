@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function(){
+            document.onclick=function(ev){
+                //FF
+                //alert(ev.clientX+','+ev.clientY);
+                //IE
+                //alert(ev.clientX+','+ev.clientY);
+                var oEvent=ev||event;//兼容的事件对象
+                alert(oEvent.clientX+','+oEvent.clientY);
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

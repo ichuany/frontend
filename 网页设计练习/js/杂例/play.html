@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Audio</title>
+    <script>
+        function playSound(s)
+        {
+            var _s=document.getElementById('txt1');
+            if(s!='' && typeof(s)!='undefined')
+            {
+                _s.src=s;
+            }
+            _s.play();
+        }
+    </script>
+</head>
+<body>
+<video id="snd"></video>
+<input type="button" value="play" onclick="playSound('http://mp3.haoduoge.com/music7/221480.mp3')"/>
+</body>
+</html>

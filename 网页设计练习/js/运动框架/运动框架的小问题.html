@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="move.js"></script>
+    <style>
+        #div1{
+            width:100px;
+            height:100px;
+            background:red;
+        }
+    </style>
+    <script>
+        window.onload=function()//不能让好几个值一块动
+        {
+            var oDiv=document.getElementById('div1');
+            var oBtn=document.getElementById('btn1');
+            oBtn.onclick=function()
+            {
+                startMove(oDiv,'width',300);
+                startMove(oDiv,'height',300);
+            }
+        }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="开始">
+<div id="div1"></div>
+</body>
+</html>

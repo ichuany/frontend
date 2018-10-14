@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-right:50px;
+            float: left;
+        }
+        #div2 {
+            width:300px;
+            height:300px;
+            background: gray;
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oDiv1=document.getElementById('div1');
+            var oDiv2=document.getElementById('div2');
+            var Timer=null;
+            oDiv2.style.display='none';
+            oDiv1.onmouseover=function()//写完后即得合并相同的部分如本例中oDiv1.onmouseover=oDiv2.onmouseover
+            //oDiv1.onmouseout=oDiv2.onmouseout
+            {
+                clearTimeout(Timer);
+                oDiv2.style.display='block';
+            };
+            oDiv1.onmouseout=function()
+            {
+                Timer=setTimeout(function(){
+                    oDiv2.style.display='none';
+                },500);
+            };
+            oDiv2.onmouseover=function()
+            {
+                clearTimeout(Timer);
+            };
+            oDiv2.onmouseout=function()
+            {
+                Timer=setTimeout(function(){
+                    oDiv2.style.display='none';
+                },500)
+
+            };
+        }
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

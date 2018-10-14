@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width:200px; height:300px; background: red; position: absolute;left:-200px;
+        }
+        #div1 span{
+            width:20px; height:60px; background: green; position: absolute; line-height:20px;right:-20px;top:70px;
+        }
+    </style>
+    <script>
+
+        window.onload=function()
+        {
+            var oDiv=document.getElementById('div1');
+           // var oSpan=document.getElementById('span1');
+
+            oDiv.onmouseover=function ()
+            {
+                startMove(0);
+            };
+            oDiv.onmouseout=function ()
+            {
+                startMove(-200);
+            }
+
+        };
+        var timer=null;
+        function startMove(iTargate)
+        {
+            var oDiv=document.getElementById('div1');
+            var speed=0;
+            if(oDiv.offsetLeft>iTargate)
+            {
+                speed=-10;
+            }
+            else
+            {
+                speed=10;
+            }
+            clearInterval(timer);
+            timer=setInterval(function() {
+                if(oDiv.offsetLeft==iTargate)
+                {
+                    clearInterval(timer);
+                }
+                else
+                {
+                    oDiv.style.left=oDiv.offsetLeft+speed+'px';
+                }
+            },30);
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <span id="span1">分享到</span>
+</div>
+</body>
+</html>

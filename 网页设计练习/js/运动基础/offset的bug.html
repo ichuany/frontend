@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background: red;
+            margin:20px;
+            border:1px solid black;
+        }
+    </style>
+    <script>
+        function getStyle(obj,name)
+        {
+            if(obj.currentStyle)
+            {
+                return obj.currentStyle[name];
+            }
+            else
+            {
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+        setInterval(function(){
+            var oDiv1=document.getElementById('div1');
+            oDiv1.style.width=parseInt(getStyle(oDiv1,'width'))-1+'px';
+        },30);
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

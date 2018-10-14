@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function createPerson(name,qq)  //构造函数
+        {
+            var obj=new Object();
+            obj.name=name;
+            obj.qq=qq;
+            obj.showName=function()
+            {
+                alert('我的名字叫：'+this.name);//this在这里指的是obj
+            };
+            obj.showQQ=function()
+            {
+                alert('qq是:'+this.qq);
+            };
+            return obj;
+        }
+        var obj=createPerson('blue','1234556');
+
+        obj.showName();
+        obj.showQQ();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function toDou(n)
+        {
+            if(n<10)
+            {
+                return '0'+n;
+            }
+            else
+            {
+                return ''+n;
+            }
+        }
+        window.onload=function()
+        {
+            var aImg=document.getElementsByTagName('img');
+            function tick()
+            {
+                var oDate=new Date;
+                var str=oDate.getFullYear()+toDou(oDate.getMonth()+1)+toDou(oDate.getDate())+
+                        toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());
+                for (var i = 0; i < aImg.length; i++)
+                {
+                    aImg[i].src = './imgs/' + str.charAt(i) + '.png';//charAt克服兼容性
+                }
+            }
+            setInterval(tick,1000);
+            tick();//执行一次tick是为了避免出现每次刷新都出现全0的情况
+        };
+    </script>
+</head>
+<body style="font-size:50px;">
+<img src="./imgs/0.png" />
+<img src="./imgs/0.png" />
+<img src="./imgs/0.png" />
+<img src="./imgs/0.png" />
+年
+<img src="./imgs/0.png" />
+<img src="./imgs/0.png" />
+月
+<img src="./imgs/0.png" />
+<img src="./imgs/0.png" />
+日<br />
+<img src="./imgs/0.png" />
+<img src="./imgs/0.png" />
+:
+<img src="./imgs/0.png" />
+<img src="./imgs/0.png" />
+:
+<img src="./imgs/0.png" />
+<img src="./imgs/0.png" />
+</body>
+</html>

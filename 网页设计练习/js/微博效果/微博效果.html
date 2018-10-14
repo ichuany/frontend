@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="move2.js"></script>
+    <style>
+        #ul1{
+            margin: 10px auto;
+            padding: 0;
+            width:300px;
+            height:400px;
+            list-style: none;
+            border:1px solid black;
+            overflow: hidden;
+        }
+        #ul1 li{
+            margin:0;
+            padding:4px;
+            list-style:none;
+            border-bottom:1px dashed black;
+            overflow: hidden;
+            filter:alpha(opacity:0);
+            opacity:0;
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oUl=document.getElementById('ul1');
+            var oBtn=document.getElementById('btn1');
+            var oTxt=document.getElementById('txt1');
+
+            oBtn.onclick=function()
+            {
+                var oLi=document.createElement('li');
+                if(oTxt.value!='')
+                {
+                    oLi.innerHTML=oTxt.value;
+                    oTxt.value='';
+                    if(oUl.children.length>0)
+                    {
+                        oUl.insertBefore(oLi,oUl.children[0])
+                    }
+                    else
+                    {
+                        oUl.appendChild(oLi);
+                    }
+                    var iHeight=oLi.offsetHeight;
+                    oLi.style.height='0';
+                    startMove(oLi,{height:iHeight},function(){
+                        startMove(oLi,{opacity:100})
+                    })
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <textarea id="txt1" rows="4" cols="50"></textarea>
+    <input id="btn1" type="button" value="发布">
+    <ul id="ul1">
+    </ul>
+</div>
+</body>
+</html>

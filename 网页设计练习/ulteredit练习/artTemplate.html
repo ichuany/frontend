@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="art-template-master/lib/compile" ></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/html" id="div">
+	<h1>{{name}}</h1>
+	<ul>
+		{{each lang}}
+		<li>语言:{{$value.title}} 定义:{{$value.add}}</li>
+		{{/each}}
+	</ul>
+</script>
+<script type="text/javascript">
+	var data = {
+		name:"前端语言",
+		lang:[{
+			title:"html",
+			add:"超文本标记语言"
+		},{
+			title:"css",
+			add:"层叠样式表"
+		},{
+			title:"javaScript",
+			add:"添加动态特效"
+		}]
+	}
+	var html = template('div',data);
+	document.getElementById("container").innerHTML = html;
+</script>
+</body>
+</html>

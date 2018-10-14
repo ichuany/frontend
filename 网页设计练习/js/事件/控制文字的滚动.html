@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #parent{
+            width:800px;
+            height:20px;
+            background:gray;
+            margin:50px auto;
+            position: relative;
+        }
+        #div1{
+            width:20px;
+            height:20px;
+            left:0;
+            top:0;
+            background:red;
+            position: absolute;
+        }
+        #div2{
+            width:300px;
+            height:400px;
+            background:yellow;
+            position:relative;
+            overflow: hidden;
+        }
+        #div3{
+            left:0;
+            top:0;
+            padding:4px;
+            position:absolute;
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oParent=document.getElementById('parent');
+            var oDiv=document.getElementById('div1');
+            var oDiv2=document.getElementById('div2');
+            var oDiv3=document.getElementById('div3');
+            var disX=0;
+
+            oDiv.onmousedown=function(ev)
+            {
+                var oEvent=ev||event;
+                disX=oEvent.clientX-oDiv.offsetLeft;
+
+                document.onmousemove=function(ev)
+                {
+                    var oEvent=ev||event;
+                    var l=oEvent.clientX-disX;
+                    if(l<0)l=0;
+                    else if(l>oParent.offsetWidth-oDiv.offsetWidth)
+                    {
+                        l=oParent.offsetWidth-oDiv.offsetWidth;
+                    }
+                    oDiv.style.left=l+'px';
+
+                    var scale=l/(oParent.offsetWidth-oDiv.offsetWidth);//这里是L
+                    document.title= scale;
+
+                    oDiv3.style.top=-scale*(oDiv3.offsetHeight-oDiv2.offsetHeight)+'px';
+
+                };
+
+                document.onmouseup=function()
+                {
+                    document.onmousemove = null;
+                    document.onmouseup=null;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="parent">
+    <div id="div1"></div>
+</div>
+<div id="div2">
+    <div id="div3">
+        根据资源共享，优势互补，平等互利，相互促进的原则，
+        武汉地区教育部直属七所高校
+        （武汉大学、
+        华中科技大学、
+        华中师范大学、
+        武汉理工大学、
+        中南财经政法大学、
+        中国地质大学、
+        华中农业大学）
+        从1999年开始联合办学，
+        学生可以跨校跨学科辅修第二学位。
+        　　七校联合办学教务管理系统自2002年开始开发并投入运行，
+        在长期的使用过程中，
+        吸收了广大师生反映的若干问题和建议，
+        系统在不断的改进和更新中，
+        感谢您的关注和支持。
+        根据资源共享，优势互补，平等互利，相互促进的原则，
+        武汉地区教育部直属七所高校
+        （武汉大学、
+        华中科技大学、
+        华中师范大学、
+        武汉理工大学、
+        中南财经政法大学、
+        中国地质大学、
+        华中农业大学）
+        从1999年开始联合办学，
+        学生可以跨校跨学科辅修第二学位。
+        　　七校联合办学教务管理系统自2002年开始开发并投入运行，
+        在长期的使用过程中，
+        吸收了广大师生反映的若干问题和建议，
+        系统在不断的改进和更新中，
+        感谢您的关注和支持。
+        根据资源共享，优势互补，平等互利，相互促进的原则，
+        武汉地区教育部直属七所高校
+        （武汉大学、
+        华中科技大学、
+        华中师范大学、
+        武汉理工大学、
+        中南财经政法大学、
+        中国地质大学、
+        华中农业大学）
+        从1999年开始联合办学，
+        学生可以跨校跨学科辅修第二学位。
+        　　七校联合办学教务管理系统自2002年开始开发并投入运行，
+        在长期的使用过程中，
+        吸收了广大师生反映的若干问题和建议，
+        系统在不断的改进和更新中，
+        感谢您的关注和支持。
+    </div>
+</div>
+</body>
+</html>

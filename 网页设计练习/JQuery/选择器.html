@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-2.2.3.js"></script>
+    <style>
+        #div1{
+            width:200px;
+            height:200px;
+            background:red;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function()//相当于window.onload
+        {
+            $("#btn1").click(function(){
+                $("#div1").css('background','blue');
+            });
+            $("#btn2").click(function(){
+                $("div").css('background','pink');
+           })
+        })
+    </script>
+
+</head>
+<body>
+<button id="btn1">变蓝</button>
+<button id="btn2">变紫</button>
+<div id="div1"></div>
+</body>
+</html>

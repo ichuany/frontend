@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function()
+        {
+            var oTab=document.getElementById('tab1');
+            var oBtn=document.getElementById('btn1');
+            var oTxt=document.getElementById('name');
+
+            oBtn.onclick=function()
+            {
+                for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+                {
+                    if(oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase()==oTxt.value.toLowerCase())//toLowerCase,忽略大小写.
+                    {
+                        oTab.tBodies[0].rows[i].style.background='yellow';
+                    }
+                    else
+                    {
+                        oTab.tBodies[0].rows[i].style.background='';
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+姓名：<input id="name" type="text"/>
+<input id="btn1" type="button" value="搜索"/>
+<table id="tab1" border="1px" width="500px">
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>赵a</td>
+        <td>23</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>钱b</td>
+        <td>21</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>周c</td>
+        <td>22</td>
+        <td><a href="#">删除</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

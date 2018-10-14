@@ -1,0 +1,27 @@
+﻿<html>
+	<head>
+		<title>表单和设计 </title>
+	</head>
+	<body>
+		<from>
+			名：
+			<input type="text" name="firstname">
+			<br />
+			姓：
+			<input type="text" name="last name">
+			<br />
+		</from>
+		<from>
+			<input type="radio" name="sex" value="male">Male
+			<br />
+			<input type="radio" name="sex" value="female">Female
+			<br />
+		</from>
+		<from name="input" action="html_from_action.asp" method="get">
+			Username:
+			<input type="text" name="username" />
+			<input type="submit" value="Submit" />
+		</from>
+	</body>
+
+</html>

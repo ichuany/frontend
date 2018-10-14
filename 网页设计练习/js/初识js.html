@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>div1 </title>
+		<style>
+			#div1 {width:200px;
+				height:200px;
+				background:red;}
+		</style>
+		<script>
+			function toGreen()
+			{
+				var oDoc=document.getElementById('div1');
+				oDoc.style.width='300px';
+				oDoc.style.height='300px';
+				oDoc.style.background='green';
+			}
+			function toRed()
+			{
+				document.getElementById('div1').style.width='200px';
+				document.getElementById('div1').style.height='200px';
+				document.getElementById('div1').style.background='red'
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1" onmouseover="toGreen()"
+			onmouseout="toRed()";>
+		</div>
+	</body>
+
+</html>

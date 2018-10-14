@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background: red;
+            float:left;
+            margin:20px;
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oDiv1=document.getElementById('div1');
+            oDiv1.onmouseover=function()
+            {
+                startMove(this,400);
+            };
+            oDiv1.onmouseout=function()
+            {
+                startMove(this,200);
+            }
+        };
+        //var alpha=0;
+        function startMove(obj,iTargate)
+        {
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function(){
+                var speed=(iTargate-obj.offsetHeight)/6;
+                speed=speed>0?Math.ceil(speed):Math.floor(speed);
+                if(obj.offsetHeight==iTargate)
+                {
+                    clearInterval(obj.timer)
+                }
+                else
+                {
+                    obj.style.height=obj.offsetHeight+speed+'px';
+                }
+            },30)
+        }
+
+    </script>
+</head>
+<body>
+<div id="div1">变高</div>
+<div id="div2">变宽</div>
+</body>
+</html>

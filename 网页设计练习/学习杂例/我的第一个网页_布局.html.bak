@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style type="text/css">
+		div#container{width:1000px}
+		div#header {background-color:#99bbbb;}
+		div#menu {background-color:#ffff99;height:400px;width:200px;float:left;}
+		div#content {background-color:#EEEEEE;height:400px;width:400px;float:left;}
+		div#result {background-color:#ffff99;height:400px;width:400px;float:right;}
+		div#footer {background-color:#99bbbb;clear:both;text-align:left;}
+		h1 {margin-bottom:0;}
+		h2 {margin-bottom:0;font-size:18px;}
+		ul {margin:2;}
+		li {list-style:none;}
+	</style>
+	</head>
+	
+<body background="http://pic.nipic.com/2008-05-09/200859100598_2.jpg"> 
+	
+<div id="container">
+	
+	<div id="header">
+<h1 align="center">Main Title of Web Page</h1>
+	</div>
+
+	<div id="menu">
+<h2>Menu</h2>
+	<ul>
+		<li><a href="http://www.gs.whu.edu.cn/">武汉大学</a></li>
+		<li><a href="http://www.gs.whu.edu.cn/">华中科技大学</a></li>
+		<li><a href="http://www.gs.whu.edu.cn/">武汉理工大学</a></li>
+		<li><a href="http://www.gs.whu.edu.cn/">中南财经政法大学</a></li>
+		<li><a href="http://www.gs.whu.edu.cn/">中国地质大学</a></li>
+		<li><a href="http://www.gs.whu.edu.cn/">华中农业大学</a></li>
+		<li><a href="http://www.gs.whu.edu.cn/">华中师范大学</a></li>
+	</ul>
+	</div>
+
+	<div id="content">Content goes here
+	<ol start="33">
+		<li><em>one </em></li>
+		<li>two </li>
+	</ol>
+	</div>
+	<div id="result">
+	<h3 align="center">your information </h3>
+	<form name="input" action="form_action.asp" method="get">
+		name:
+		<input type="text" name="user"/>
+		<br />
+		sex:
+		<input type="radio" name="sex" value="male" /> Male
+		<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="radio" name="sex" value="female" /> Female
+		<br />
+		phone number:
+		<input type="text" name="number"/>
+		<input type="submit" value="Submit" />
+	</form>
+	</div>
+	<div id="footer"><h3 align="center">Copyright message.com.cn</h3>
+	</div>
+
+</div>
+
+</body>
+</html>

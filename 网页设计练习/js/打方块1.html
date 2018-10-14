@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方块</title>
+    <style>
+        #container{
+            width:850px;
+            height:730px;
+            background:gray;
+            position: relative;
+            margin:10px auto;
+        }
+        #target{
+            width:850px;
+            height:500px;
+            background:pink;
+        }
+        #target div{
+            width:60px;
+            height:60px;
+            background:white;
+            margin-top:10px;
+            margin-left:10px;
+            position: absolute;
+        }
+        #tank{
+            width:40px;
+            height:40px;
+            background:red;
+            position:absolute;
+            left:380px;
+            top:680px;
+        }
+        #btn1{
+            position: absolute;
+            top:690px;
+            left:800px;
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oBtn=document.getElementById('btn1');
+            var oTank=document.getElementById('tank');
+            var oDiv=document.getElementById('container');
+            var oDiv1=document.getElementById('target');
+            var sum=0;//sum用来控制发射子弹的数目
+
+            oBtn.onclick=function()//开始
+            {
+                oTank.style.background='yellow';//坦克变色
+                alert('a');
+
+                //创建目标
+                for(var i=0;i<10;i++)
+                {
+                    var oDiv2=document.createElement('div');
+                    oDiv2.style.top=10+10*i+'px';
+                    oDiv2.style.left=10*i+60*i+'px';
+                    oDiv1.appendChild(oDiv2);
+                }
+                var aDiv=oDiv1.getElementsByTagName('div');
+
+                document.onkeydown=function(ev)
+                {
+                    var oEvent=ev||event;
+                    switch (oEvent.keyCode)
+                    {
+                        case 65:
+                            oTank.style.left=oTank.offsetLeft-10+'px';//左
+                            if(oTank.offsetLeft<=0)
+                            {
+                                oTank.style.left=0;
+                            }
+                            break;
+                        case 87:
+                            oTank.style.top=oTank.offsetTop-10+'px';//上
+                            if(oTank.offsetTop<=0)
+                            {
+                                oTank.style.top=0;
+                            }
+                            break;
+                        case 68:
+                            oTank.style.left=oTank.offsetLeft+10+'px';//右
+                            if(oTank.offsetLeft>=oDiv.offsetWidth-oTank.offsetWidth)
+                            {
+                                oTank.style.left=oDiv.offsetWidth-oTank.offsetWidth+'px';
+                            }
+                            break;
+                        case 83:
+                            oTank.style.top=oTank.offsetTop+10+'px';//下
+                            if(oTank.offsetTop>=oDiv.offsetHeight-oTank.offsetHeight)
+                            {
+                                oTank.style.top=oDiv.offsetHeight-oTank.offsetHeight+'px';
+                            }
+                            break;
+                        case 74://j   不能设置成空格键32，因为按空格是button的快捷键，每次按空格都相当于按了开始键。
+                            if(sum==0)
+                            {
+                                sum=0;//sum=0能无限发射子弹，sum=1，在前一颗子弹消失前不能再发射子弹。
+                                var oJet=document.createElement('div');
+                                oJet.style.width=6+'px';
+                                oJet.style.height=10+'px';
+                                oJet.style.background='blue';
+                                oJet.style.position='absolute';
+
+                                oJet.style.left=oTank.offsetLeft+17+'px';
+                                oJet.style.top=oTank.offsetTop-10+'px';
+
+                                oDiv.appendChild(oJet);
+
+                                var timer=setInterval(function(){
+                                    oJet.style.top=oJet.offsetTop-5+'px';
+
+                                    for(var i=0;i<aDiv.length;i++)
+                                    {
+                                        if((aDiv[i].offsetTop==oJet.offsetTop-60)&&(aDiv[i].offsetLeft>oJet.offsetLeft-60)&&
+                                                (aDiv[i].offsetLeft<oJet.offsetLeft))
+                                        {
+                                            aDiv[i].style.display='none';
+                                            oJet.style.display='none';
+                                            clearInterval(timer);
+                                            sum=0;
+                                        }
+
+                                        if(oJet.offsetTop<=0)
+                                        {
+                                            oJet.style.display='none';
+                                            sum=0;
+                                        }
+                                    }
+                                },30);
+                            }
+                            break;
+                        default:break;
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div id="container">
+    <div id="target">
+    </div>
+    <div id="tank"></div>
+    <input id="btn1" type="button" value="开始"/>
+</div>
+
+</body>
+</html>

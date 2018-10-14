@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>表格 </title>
+	</head>
+	<body>
+		</tr>
+		</table>
+		<h3>一行三列 </h3>
+		<table border="1">
+		<tr>
+			<th>number 1 </th>
+			<th>number 2 </th>
+			<th>number 3 </th>
+		</tr>
+		<tr>
+			<td>100</td>
+			<td>200</td>
+			<td>300</td>
+		</tr>
+		</table>
+
+		<h3>两行三列 </h3>
+		<table border="1">
+		<tr>
+			<td>100</td>
+			<td>200</td>
+			<td>300</td>
+		</tr>
+		<tr>
+			<td>100</td>
+			<td>200</td>
+			<td>300</td>
+		</tr>
+	</body>
+
+</html>

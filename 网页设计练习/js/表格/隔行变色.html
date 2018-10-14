@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function()
+        {
+            var oTab=document.getElementById('tab1');
+            var oldColor='';
+
+            oTab.tHead.style.background='red';
+            for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+            {
+                if(i%2==0)
+                {
+                    oTab.tBodies[0].rows[i].style.background='gray';
+                }
+                else
+                {
+                    oTab.tBodies[0].rows[i].style.background='none';
+                }
+                oTab.tBodies[0].rows[i].onmouseover=function()
+                {
+                    oldColor=this.style.background;
+                    this.style.background='blue';
+                };
+                oTab.tBodies[0].rows[i].onmouseout=function()
+                {
+                    this.style.background=oldColor;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<table id="tab1" border="1px" width="500px">
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>姓名</td>
+        <td>年龄</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>赵a</td>
+        <td>23</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>钱b</td>
+        <td>21</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>周c</td>
+        <td>22</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

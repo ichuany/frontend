@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="move2.js"></script>
+    <style>
+        #div1{
+            width:100px;
+            height:100px;
+            background:red;
+            filter:alpha(opacity:30);
+            opacity:0.3;
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oDiv=document.getElementById('div1');
+            var oBtn=document.getElementById('btn1');
+            oBtn.onclick=function()
+            {
+                startMove(oDiv,{width:101,height:300,opacity:100},function(){
+                    alert('a');
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="开始">
+<div id="div1"></div>
+</body>
+</html>

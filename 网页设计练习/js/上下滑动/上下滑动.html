@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="move2.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        #play{
+            width:960px;
+            height:220px;
+            position:relative;
+            background: red;
+            margin:50px auto;
+            overflow: hidden;
+        }
+        #play ol{
+            list-style: none;
+            position: absolute;
+            left:800px;
+            top:180px;
+            z-index: 2;
+        }
+        #play ol li{
+            display:block;
+            width:20px;
+            height:20px;
+            margin-right:10px;
+            background: white;
+            border:1px solid yellow;
+            float:left;
+        }
+        #play ul{
+            z-index: 1;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        #play ul li{
+            width:960px;
+            height:220px;
+            float: left;
+            list-style: none;
+        }
+        #play .active{
+            background:yellow;
+        }
+    </style>
+    <script>
+        window.onload=function()
+        {
+            var oDiv=document.getElementById('play');
+            var oOl=oDiv.getElementsByTagName('ol')[0];
+            var oUl=oDiv.getElementsByTagName('ul')[0];
+            var aBtn=oOl.getElementsByTagName('li');
+            var now=0;
+
+            function tab()
+            {
+                for(var j=0;j<aBtn.length;j++)
+                {
+                    aBtn[j].className='';
+                }
+                aBtn[now].className='active';
+                startMove(oUl,{top:-220*now});
+            }
+
+            for(var i=0;i<aBtn.length;i++)
+            {
+                aBtn[i].index=i;
+                aBtn[i].onclick=function()
+                {
+                    now=this.index;
+                    tab();
+                };
+            }
+
+            function next()
+            {
+                now++;
+                if(now==aBtn.length){
+                    now=0;
+                }
+                tab();
+            }
+            var timer=setInterval(next,3000);
+            oDiv.onmouseover=function()
+            {
+                clearInterval(timer);
+            };
+            oDiv.onmouseout=function()
+            {
+                timer=setInterval(next,3000);
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="play" class="play">
+    <ol>
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+    <ul>
+        <li><img src="imgs/z1.png" /></li>
+        <li><img src="imgs/z2.png" /></li>
+        <li><img src="imgs/z3.png" /></li>
+        <li><img src="imgs/z4.png" /></li>
+        <li><img src="imgs/z5.png" /></li>
+    </ul>
+</div>
+</body>
+</html>

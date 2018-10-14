@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var obj=new Object();
+        obj.name='blue';
+        obj.qq='1234576';
+
+        obj.showName=function()
+        {
+            alert('我的名字叫：'+this.name);//this在这里指的是obj
+        };
+        obj.showQQ=function()
+        {
+           alert('qq是:'+this.qq);
+        };
+        obj.showName();
+        obj.showQQ();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
